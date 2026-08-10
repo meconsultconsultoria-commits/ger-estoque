@@ -1,0 +1,23 @@
+:root{--navy:#123b63;--blue:#1769aa;--ink:#172b3f;--muted:#52677a;--line:#cfdbe6;--bg:#eef3f7;--green:#087a59;--orange:#b86800}
+body{background:#eef3f7;color:#172b3f}
+.topbar{background:#123b63;color:#fff;border-bottom-color:#d7e2ec;box-shadow:0 3px 14px #1b385522}
+.brand span,.topbar h1{color:#edf7ff}.topbar h1 em{color:#6ee7d8}.rolePill{background:#fff;color:#174e78;border-color:#cbddeb}.accountAvatar{background:#dff8f4;color:#12675e;border-color:#fff}
+nav{background:#fff!important;border-bottom:1px solid #cbd8e3!important;box-shadow:0 5px 18px #193a5620!important}
+nav button{color:#486278!important}
+nav button:hover{background:#edf5fb!important;color:#125b91!important}
+nav button.active{background:#e4f2fb!important;color:#0d5f99!important;border-bottom-color:#0b8f83!important;box-shadow:none!important}
+.shell{color:#172b3f}
+.hero{background:linear-gradient(120deg,#f8fbfd,#e7f1f7)!important;color:#172b3f!important;border:1px solid #c9d9e5!important;box-shadow:0 12px 30px #24476216!important}
+.hero p{color:#1769aa!important}.hero strong{color:#123b63!important;text-shadow:none!important}.hero strong small{color:#52677a}.siloVisual{border-right-color:#c8d7e2!important}.siloVisual img{filter:drop-shadow(0 15px 18px #1d40552e)!important}.siloVisual b{color:#087a70!important}.siloVisual p{color:#52677a!important}
+.cards article,.panel,.formPanel{background:#fff!important;border-color:#cfdbe6!important;box-shadow:0 6px 18px #2447620d}
+.cards p,.cards small,.panel small{color:#52677a!important}.cards strong,.panel h2,.panel b{color:#172b3f}
+.panelTitle{border-bottom-color:#dce5ec!important}.panelTitle p{color:#1769aa!important}.panelTitle button{background:#e7f2fa!important;color:#125f98!important}
+table{background:#fff}th{background:#f2f6f9;color:#405a70!important}td{color:#243b50!important;border-bottom-color:#e1e8ee!important}tbody tr:hover{background:#edf6fb!important}
+.formIntro{background:#1b4d75!important;color:#fff!important}.formIntro p{color:#9fd4f5!important}.formIntro small{color:#e1edf5!important}
+.formPanel label,.userForm label{color:#304a60!important}.formPanel input,.formPanel select,.userForm input,.userForm select{background:#fff!important;color:#172b3f!important;border:1px solid #aebfcd!important}.formPanel input:focus,.formPanel select:focus,.userForm input:focus,.userForm select:focus{border-color:#1769aa!important;box-shadow:0 0 0 3px #1769aa24!important}
+.primary{background:#1769aa!important;color:#fff!important}.primary:hover{background:#0e568e!important}
+.profileHero{background:#fff!important;color:#172b3f!important;border:1px solid #cfdbe6!important}.profileHero p,.profileHero span,.personalKpi small{color:#52677a!important}.profileAvatar{background:#dff4f1!important;color:#087a70!important}
+.userList article{border-bottom-color:#dce5ec!important}.userList small{color:#52677a!important}.avatar{background:#e5f1f8!important;color:#1769aa!important}
+footer{color:#52677a!important}footer a{color:#125f98!important}
+.access{background:linear-gradient(135deg,#e9f1f6,#f8fbfd)!important}.loginCard{background:#fff!important;color:#172b3f!important;border:1px solid #cbd8e3!important;box-shadow:0 20px 50px #173b5524!important}
+@media(max-width:768px){nav{background:#fff!important}.hero{background:#f7fafc!important}}

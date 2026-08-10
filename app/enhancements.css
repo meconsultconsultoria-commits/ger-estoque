@@ -1,0 +1,1 @@
+.cards.four{grid-template-columns:repeat(4,1fr)}.userList select{border:1px solid #ccd7e3;border-radius:8px;padding:8px;background:#fff;color:#42526a}@media(max-width:900px){.cards.four{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){.cards.four{grid-template-columns:1fr}}
