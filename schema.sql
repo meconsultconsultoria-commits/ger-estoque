@@ -36,6 +36,17 @@ CREATE TABLE IF NOT EXISTS `audits` (
   `created_at` TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS `scheduled_loads` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `date` TEXT NOT NULL,
+  `qty` INTEGER NOT NULL,
+  `doc` TEXT NOT NULL,
+  `vehicle` TEXT NOT NULL,
+  `status` TEXT DEFAULT 'Programada' NOT NULL,
+  `owner` TEXT NOT NULL,
+  `created_at` TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS `movements` (
   `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `date` TEXT NOT NULL,
@@ -46,16 +57,7 @@ CREATE TABLE IF NOT EXISTS `movements` (
   `owner` TEXT NOT NULL,
   `owner_email` TEXT NOT NULL,
   `reason` TEXT,
-  `created_at` TEXT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS `scheduled_loads` (
-  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-  `date` TEXT NOT NULL,
-  `qty` INTEGER NOT NULL,
-  `doc` TEXT NOT NULL,
-  `vehicle` TEXT NOT NULL,
-  `status` TEXT DEFAULT 'Programada' NOT NULL,
-  `owner` TEXT NOT NULL,
-  `created_at` TEXT NOT NULL
+  `scheduled_load_id` INTEGER UNIQUE,
+  `created_at` TEXT NOT NULL,
+  FOREIGN KEY (`scheduled_load_id`) REFERENCES `scheduled_loads`(`id`) ON DELETE RESTRICT
 );
