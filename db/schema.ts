@@ -21,13 +21,6 @@ export const sessions = sqliteTable("sessions", {
   index("sessions_user_idx").on(table.userId),
 ]);
 
-export const movements = sqliteTable("movements", {
-  id: integer("id").primaryKey({ autoIncrement: true }), date: text("date").notNull(),
-  type: text("type", { enum:["Entrada","Saída","Ajuste"] }).notNull(), qty: integer("qty").notNull(),
-  doc: text("doc").notNull(), vehicle: text("vehicle").notNull(), owner: text("owner").notNull(),
-  ownerEmail: text("owner_email").notNull(), reason: text("reason"), createdAt: text("created_at").notNull(),
-});
-
 export const audits = sqliteTable("audits", {
   id: integer("id").primaryKey({ autoIncrement:true }), action:text("action").notNull(), entity:text("entity").notNull(),
   entityId:integer("entity_id"), details:text("details").notNull(), userEmail:text("user_email").notNull(), createdAt:text("created_at").notNull(),
@@ -37,4 +30,13 @@ export const scheduledLoads = sqliteTable("scheduled_loads", {
   id:integer("id").primaryKey({autoIncrement:true}), date:text("date").notNull(), qty:integer("qty").notNull(),
   doc:text("doc").notNull(), vehicle:text("vehicle").notNull(), status:text("status").notNull().default("Programada"),
   owner:text("owner").notNull(), createdAt:text("created_at").notNull(),
+});
+
+export const movements = sqliteTable("movements", {
+  id: integer("id").primaryKey({ autoIncrement: true }), date: text("date").notNull(),
+  type: text("type", { enum:["Entrada","Saída","Ajuste"] }).notNull(), qty: integer("qty").notNull(),
+  doc: text("doc").notNull(), vehicle: text("vehicle").notNull(), owner: text("owner").notNull(),
+  ownerEmail: text("owner_email").notNull(), reason: text("reason"),
+  scheduledLoadId: integer("scheduled_load_id").unique().references(() => scheduledLoads.id, { onDelete: "restrict" }),
+  createdAt: text("created_at").notNull(),
 });

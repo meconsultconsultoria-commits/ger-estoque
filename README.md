@@ -19,6 +19,7 @@ npm run build
 ## Deploy
 
 ```bash
+npx wrangler d1 migrations apply ger-estoque-db --remote
 npx wrangler deploy
 ```
 
