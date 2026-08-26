@@ -30,3 +30,17 @@ export async function POST(req:Request){
   throw error;
  }
 }
+
+export async function DELETE(req:Request){
+ const u=await getCurrentUser();if(!u)return Response.json({error:"Acesso negado"},{status:403});
+ if(u.role!=="admin")return Response.json({error:"A exclusão é exclusiva do administrador."},{status:403});
+ const {id}=await req.json() as {id?:unknown};const movementId=Number(id);
+ if(!Number.isInteger(movementId)||movementId<=0)return Response.json({error:"Lançamento inválido."},{status:400});
+ const [row]=await getDb().select().from(movements).where(eq(movements.id,movementId)).limit(1);
+ if(!row)return Response.json({error:"Lançamento não encontrado."},{status:404});
+ const all=await getDb().select().from(movements),stock=all.reduce((sum,item)=>sum+(item.type==="Saída"?-item.qty:item.qty),0),resultingStock=stock-(row.type==="Saída"?-row.qty:row.qty);
+ if(resultingStock<0||resultingStock>120000)return Response.json({error:resultingStock<0?"A exclusão deixaria o estoque negativo.":"A exclusão faria o estoque exceder 120 t."},{status:409});
+ await getDb().delete(movements).where(eq(movements.id,movementId));
+ await getDb().insert(audits).values({action:"EXCLUSÃO",entity:"MOVIMENTAÇÃO",entityId:row.id,details:JSON.stringify({date:row.date,type:row.type,qty:row.qty/1000,doc:row.doc,vehicle:row.vehicle,owner:row.owner,scheduledLoadId:row.scheduledLoadId}),userEmail:u.email,createdAt:new Date().toISOString()});
+ return Response.json({ok:true});
+}
