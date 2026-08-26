@@ -8,7 +8,7 @@ nav button:hover{background:#edf5fb!important;color:#125b91!important}
 nav button.active{background:#e4f2fb!important;color:#0d5f99!important;border-bottom-color:#0b8f83!important;box-shadow:none!important}
 .shell{color:#172b3f}
 .hero{background:linear-gradient(120deg,#f8fbfd,#e7f1f7)!important;color:#172b3f!important;border:1px solid #c9d9e5!important;box-shadow:0 12px 30px #24476216!important}
-.hero p{color:#1769aa!important}.hero strong{color:#123b63!important;text-shadow:none!important}.hero strong small{color:#52677a}.siloVisual{border-right-color:#c8d7e2!important}.siloVisual img{filter:drop-shadow(0 15px 18px #1d40552e)!important}.siloVisual b{color:#087a70!important}.siloVisual p{color:#52677a!important}
+.hero p{color:#1769aa!important}.hero strong{color:#123b63!important;text-shadow:none!important}.hero strong small{color:#52677a}.heroMetric.freeSpace{border-left-color:#c8d7e2!important}.capacityNote{color:#52677a!important}.siloVisual{border-right-color:#c8d7e2!important}.siloVisual img{filter:drop-shadow(0 15px 18px #1d40552e)!important}.siloVisual b{color:#087a70!important}.siloVisual p{color:#52677a!important}
 .cards article,.panel,.formPanel{background:#fff!important;border-color:#cfdbe6!important;box-shadow:0 6px 18px #2447620d}
 .cards p,.cards small,.panel small{color:#52677a!important}.cards strong,.panel h2,.panel b{color:#172b3f}
 .panelTitle{border-bottom-color:#dce5ec!important}.panelTitle p{color:#1769aa!important}.panelTitle button{background:#e7f2fa!important;color:#125f98!important}
