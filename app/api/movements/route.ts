@@ -17,7 +17,7 @@ export async function POST(req:Request){
   if(!load)return Response.json({error:"Programação não encontrada."},{status:404});
   if(load.status!=="Recebida")return Response.json({error:"A programação precisa estar como Recebida."},{status:400});
   if(type!=="Entrada")return Response.json({error:"Uma programação recebida só pode gerar uma entrada."},{status:400});
-  if(load.qty!==qty||load.doc!==String(b.doc)||load.vehicle!==String(b.vehicle).toUpperCase())return Response.json({error:"Os dados da entrada não correspondem à programação."},{status:400});
+  if(load.doc!==String(b.doc))return Response.json({error:"O documento não corresponde à programação."},{status:400});
  }
  if(type==="Ajuste"&&u.role!=="admin")return Response.json({error:"Ajustes são exclusivos do administrador."},{status:403});
  if(type==="Ajuste"&&!String(b.reason||"").trim())return Response.json({error:"Informe a justificativa do ajuste."},{status:400});
