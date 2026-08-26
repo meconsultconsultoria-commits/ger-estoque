@@ -36,7 +36,7 @@ export const movements = sqliteTable("movements", {
   id: integer("id").primaryKey({ autoIncrement: true }), date: text("date").notNull(),
   type: text("type", { enum:["Entrada","Saída","Ajuste"] }).notNull(), qty: integer("qty").notNull(),
   doc: text("doc").notNull(), vehicle: text("vehicle").notNull(), owner: text("owner").notNull(),
-  ownerEmail: text("owner_email").notNull(), reason: text("reason"),
+  ownerEmail: text("owner_email").notNull(), reason: text("reason"), adjustmentDelta: integer("adjustment_delta"),
   scheduledLoadId: integer("scheduled_load_id").unique().references(() => scheduledLoads.id, { onDelete: "restrict" }),
   createdAt: text("created_at").notNull(),
 });

@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `movements` (
   `owner` TEXT NOT NULL,
   `owner_email` TEXT NOT NULL,
   `reason` TEXT,
+  `adjustment_delta` INTEGER,
   `scheduled_load_id` INTEGER UNIQUE,
   `created_at` TEXT NOT NULL,
   FOREIGN KEY (`scheduled_load_id`) REFERENCES `scheduled_loads`(`id`) ON DELETE RESTRICT
