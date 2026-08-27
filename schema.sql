@@ -33,7 +33,30 @@ CREATE TABLE IF NOT EXISTS `audits` (
   `entity_id` INTEGER,
   `details` TEXT NOT NULL,
   `user_email` TEXT NOT NULL,
+  `client_id` INTEGER DEFAULT 1 NOT NULL,
   `created_at` TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `clients` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `name` TEXT NOT NULL,
+  `document` TEXT,
+  `logo_url` TEXT,
+  `primary_color` TEXT DEFAULT '#302d91' NOT NULL,
+  `secondary_color` TEXT DEFAULT '#d63a1f' NOT NULL,
+  `accent_color` TEXT DEFAULT '#ffffff' NOT NULL,
+  `active` INTEGER DEFAULT 1 NOT NULL,
+  `created_at` TEXT NOT NULL,
+  `updated_at` TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `user_clients` (
+  `user_id` INTEGER NOT NULL,
+  `client_id` INTEGER NOT NULL,
+  `created_at` TEXT NOT NULL,
+  PRIMARY KEY (`user_id`,`client_id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`client_id`) REFERENCES `clients`(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `silos` (
@@ -43,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `silos` (
   `capacity` INTEGER NOT NULL CHECK (`capacity` > 0),
   `minimum_stock` INTEGER DEFAULT 0 NOT NULL CHECK (`minimum_stock` >= 0 AND `minimum_stock` <= `capacity`),
   `active` INTEGER DEFAULT 1 NOT NULL,
+  `client_id` INTEGER DEFAULT 1 NOT NULL,
   `created_at` TEXT NOT NULL,
   `updated_at` TEXT NOT NULL
 );
