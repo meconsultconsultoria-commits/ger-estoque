@@ -36,6 +36,17 @@ CREATE TABLE IF NOT EXISTS `audits` (
   `created_at` TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS `silos` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `name` TEXT NOT NULL,
+  `product` TEXT NOT NULL,
+  `capacity` INTEGER NOT NULL CHECK (`capacity` > 0),
+  `minimum_stock` INTEGER DEFAULT 0 NOT NULL CHECK (`minimum_stock` >= 0 AND `minimum_stock` <= `capacity`),
+  `active` INTEGER DEFAULT 1 NOT NULL,
+  `created_at` TEXT NOT NULL,
+  `updated_at` TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS `scheduled_loads` (
   `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `date` TEXT NOT NULL,
@@ -44,8 +55,11 @@ CREATE TABLE IF NOT EXISTS `scheduled_loads` (
   `vehicle` TEXT NOT NULL,
   `status` TEXT DEFAULT 'Programada' NOT NULL,
   `owner` TEXT NOT NULL,
-  `created_at` TEXT NOT NULL
+  `silo_id` INTEGER DEFAULT 1 NOT NULL,
+  `created_at` TEXT NOT NULL,
+  FOREIGN KEY (`silo_id`) REFERENCES `silos`(`id`) ON DELETE RESTRICT
 );
+CREATE INDEX IF NOT EXISTS `scheduled_loads_silo_idx` ON `scheduled_loads` (`silo_id`);
 
 CREATE TABLE IF NOT EXISTS `movements` (
   `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -59,6 +73,9 @@ CREATE TABLE IF NOT EXISTS `movements` (
   `reason` TEXT,
   `adjustment_delta` INTEGER,
   `scheduled_load_id` INTEGER UNIQUE,
+  `silo_id` INTEGER DEFAULT 1 NOT NULL,
   `created_at` TEXT NOT NULL,
-  FOREIGN KEY (`scheduled_load_id`) REFERENCES `scheduled_loads`(`id`) ON DELETE RESTRICT
+  FOREIGN KEY (`scheduled_load_id`) REFERENCES `scheduled_loads`(`id`) ON DELETE RESTRICT,
+  FOREIGN KEY (`silo_id`) REFERENCES `silos`(`id`) ON DELETE RESTRICT
 );
+CREATE INDEX IF NOT EXISTS `movements_silo_idx` ON `movements` (`silo_id`);
