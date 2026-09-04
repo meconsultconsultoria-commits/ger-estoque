@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GER",
-  description: "GER — Gestão de Estoque e Registros do Silo",
+  title: "ME STOCK",
+  description: "ME STOCK — Gestão de Estoques e Silos",
   other: {
     "codex-preview": "development",
   },
