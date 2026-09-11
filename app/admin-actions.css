@@ -28,3 +28,50 @@ body{font-family:Inter,Manrope,Arial,Helvetica,sans-serif;background:#f2f5f8;col
 @media(max-width:900px){.access{grid-template-columns:1fr!important;padding:28px!important}.access:before,.access:after{display:none}.loginCard{width:min(480px,100%)!important;margin:auto!important}}
 @media(max-width:768px){.clientAccess{padding:30px 18px!important}.clientAccessHead h1{font-size:28px!important}.clientGrid{grid-template-columns:1fr!important}.clientGrid>button{min-height:175px!important}.clientTheme .topbar{height:68px!important;padding:0 14px!important}.clientTheme .clientBrand img{width:104px!important;max-height:42px!important}.clientTheme .shell{padding:88px 14px 82px!important}.clientTheme .hero{display:flex!important;flex-direction:column-reverse!important;gap:24px!important;padding:24px!important;min-height:auto!important}.clientTheme .heroMetrics{grid-template-columns:1fr 1fr!important;gap:15px!important}.clientTheme .heroMetric strong{font-size:34px!important;letter-spacing:-1.5px!important}.clientTheme .siloVisual img{width:88px!important;height:126px!important}.clientTheme .cards.four{grid-template-columns:1fr 1fr!important}.clientTheme .formPanel{grid-template-columns:1fr!important}.clientTheme footer{display:none!important}}
 @media(max-width:520px){.access{padding:16px!important}.loginCard{padding:36px 25px 30px!important;border-radius:18px!important}.loginCard:before{display:none}.loginCard h1{font-size:27px!important}.clientTheme .cards.four{grid-template-columns:1fr!important}.clientTheme .heroMetrics{grid-template-columns:1fr!important}.clientTheme .heroMetric.freeSpace{padding-left:0!important;padding-top:15px;border-left:0!important;border-top:1px solid #e1e7ed}}
+
+/* CENTRAL OPERACIONAL — priorização visual do dashboard */
+.clientTheme .siloOverview{position:relative;padding-top:34px!important;margin-top:0!important}
+.clientTheme .siloOverview:before{content:"VISÃO OPERACIONAL DOS SILOS";position:absolute;top:0;left:2px;color:#6c7d8d;font-size:9px;font-weight:900;letter-spacing:.16em}
+.clientTheme .siloOverview:after{content:"Selecione um silo para concentrar os indicadores e a projeção";position:absolute;top:14px;left:2px;color:#98a5b1;font-size:9px;font-weight:500}
+.clientTheme .siloOverview button{position:relative;overflow:hidden;border:1px solid #dce5ec!important}
+.clientTheme .siloOverview button:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#d9e2e9;transition:.2s ease}
+.clientTheme .siloOverview button.selected{background:linear-gradient(145deg,color-mix(in srgb,var(--client-primary) 6%,white),#fff)!important;border-color:color-mix(in srgb,var(--client-primary) 35%,white)!important}
+.clientTheme .siloOverview button.selected:before{background:var(--client-primary)}
+.clientTheme .siloOverview button.selected span,.clientTheme .siloOverview button.selected b{color:var(--client-primary)!important}
+.clientTheme .siloOverview button.selected strong{font-size:30px!important}
+
+.clientTheme .hero{position:relative;overflow:hidden;border:1px solid color-mix(in srgb,var(--client-primary) 18%,white)!important;background:linear-gradient(128deg,#fff 0%,color-mix(in srgb,var(--client-primary) 4%,white) 68%,color-mix(in srgb,var(--client-secondary) 5%,white) 100%)!important}
+.clientTheme .hero:before{content:"POSIÇÃO ATUAL";position:absolute;top:18px;right:22px;color:color-mix(in srgb,var(--client-primary) 74%,#758596);font-size:9px;font-weight:900;letter-spacing:.15em}
+.clientTheme .hero:after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--client-primary),var(--client-secondary))}
+.clientTheme .heroMetric{position:relative;padding:8px 0}
+.clientTheme .heroMetric:first-child:after{content:"Saldo físico calculado";display:block;margin-top:8px;color:#82909d;font-size:9px;font-weight:600}
+.clientTheme .heroMetric.freeSpace:after{content:"Capacidade disponível agora";display:block;margin-top:8px;color:#82909d;font-size:9px;font-weight:600}
+.clientTheme .siloVisual{position:relative}
+.clientTheme .siloVisual:before{content:"NÍVEL DO SILO";display:block;margin-bottom:8px;color:#7c8c9b;font-size:8px;font-weight:900;letter-spacing:.15em}
+
+.clientTheme .operationalAlert{position:relative;overflow:hidden;border-width:1px 1px 1px 5px!important;padding:17px 20px!important}
+.clientTheme .operationalAlert:before{content:"PROJEÇÃO D+1";display:block;min-width:98px;margin-right:18px;font-size:9px;font-weight:900;letter-spacing:.14em}
+.clientTheme .operationalAlert.ok{border-left-color:#16865b!important;background:linear-gradient(90deg,#eefaf5,#fff)!important}
+.clientTheme .operationalAlert.ok:before{color:#16865b}
+.clientTheme .operationalAlert.danger{border-left-color:#b73e2c!important;background:linear-gradient(90deg,#fff0ed,#fff)!important;box-shadow:0 10px 28px rgba(183,62,44,.10)!important}
+.clientTheme .operationalAlert.danger:before{color:#b73e2c}
+.clientTheme .operationalAlert.pending{border-left-color:#b78513!important;background:linear-gradient(90deg,#fff8e8,#fff)!important}
+.clientTheme .operationalAlert.pending:before{color:#9a6e0d}
+
+.clientTheme .scheduleSummary{position:relative;padding-top:30px!important}
+.clientTheme .scheduleSummary:before{content:"FLUXO DE RECEBIMENTOS";position:absolute;top:0;left:2px;color:#6c7d8d;font-size:9px;font-weight:900;letter-spacing:.15em}
+.clientTheme .statusSummary{position:relative;overflow:hidden;background:#fff!important;border:1px solid #dce4eb!important}
+.clientTheme .statusSummary:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#d9e2e9}
+.clientTheme .statusSummary.programada:after{background:#3886c7}.clientTheme .statusSummary.em-transito:after{background:#d2a52a}.clientTheme .statusSummary.recebida:after{background:#1e9b73}.clientTheme .statusSummary.cancelada:after{background:#ba6666}
+.clientTheme .statusSummary>span{width:42px!important;height:42px!important;font-size:17px!important;border-radius:12px!important}.clientTheme .statusSummary b{font-size:11px!important}.clientTheme .statusSummary small{font-size:8px!important;letter-spacing:.06em;text-transform:uppercase}
+
+.clientTheme .cards.four{position:relative;padding-top:31px!important}
+.clientTheme .cards.four:before{content:"INDICADORES DE DECISÃO";position:absolute;top:0;left:2px;color:#6c7d8d;font-size:9px;font-weight:900;letter-spacing:.15em}
+.clientTheme .cards.four article{position:relative;overflow:hidden;border:1px solid #dfe7ed!important}
+.clientTheme .cards.four article:after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:#dce4eb}
+.clientTheme .cards.four article:nth-child(1):after{background:#1e9b73}.clientTheme .cards.four article:nth-child(2):after{background:#3886c7}.clientTheme .cards.four article:nth-child(3):after{background:#d19b23}.clientTheme .cards.four article:nth-child(4){background:linear-gradient(145deg,color-mix(in srgb,var(--client-primary) 6%,white),#fff)!important;border-color:color-mix(in srgb,var(--client-primary) 20%,white)!important}.clientTheme .cards.four article:nth-child(4):after{background:var(--client-primary)}.clientTheme .cards.four article:nth-child(4) strong{font-size:24px!important}
+
+.clientTheme .panel:has(.tableWrap){margin-top:20px!important;box-shadow:none!important;border-color:#e0e7ed!important}.clientTheme .panel:has(.tableWrap) .panelTitle{background:#f8fafc!important}.clientTheme .panel:has(.tableWrap) .panelTitle h2{font-size:16px!important}.clientTheme .panel:has(.tableWrap) tbody tr{background:#fff}.clientTheme .panel:has(.tableWrap) tbody tr:hover{background:color-mix(in srgb,var(--client-primary) 5%,white)!important}
+
+@media(min-width:1100px){.clientTheme .scheduleSummary{grid-template-columns:repeat(4,minmax(0,1fr))!important}.clientTheme .cards.four{grid-template-columns:repeat(4,minmax(0,1fr))!important}.clientTheme .operationalAlert{display:grid!important;grid-template-columns:110px 1.2fr 1fr;align-items:center!important}.clientTheme .operationalAlert b{font-size:13px!important}.clientTheme .operationalAlert span{margin:0!important;text-align:right}}
+@media(max-width:768px){.clientTheme .siloOverview{padding-top:40px!important}.clientTheme .siloOverview:after{max-width:280px}.clientTheme .hero:before{top:13px;right:14px}.clientTheme .operationalAlert:before{margin:0 0 4px!important}.clientTheme .scheduleSummary,.clientTheme .cards.four{padding-top:30px!important}}
