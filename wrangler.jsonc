@@ -7,6 +7,12 @@
   "assets": {
     "binding": "ASSETS"
   },
+  "routes": [
+    {
+      "pattern": "mestock.meconsultconsultoria.com.br",
+      "custom_domain": true
+    }
+  ],
   "d1_databases": [
     {
       "binding": "DB",
